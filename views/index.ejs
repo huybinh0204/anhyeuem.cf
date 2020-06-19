@@ -1,11 +1,307 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+    <title>Em Yêu Của Anh</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script>if (typeof jQuery == 'undefined') {
+            document.write('<' + 'script');
+            document.write(' language="javascript"');
+            document.write(' type="text/javascript"');
+            document.write(' src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">');
+            document.write('</' + 'script' + '>')
+        }</script>
+    <script>if (!image_urls) {
+            var image_urls = Array()
+        }
+        if (!flash_urls) {
+            var flash_urls = Array()
+        }
+        image_urls['rain1'] = "http://2.bp.blogspot.com/-kZFDYYz6KGk/UFmgFdC62TI/AAAAAAAAEX8/smhTZsHE-O8/s1600/Leaf1.png";
+        image_urls['rain2'] = "http://1.bp.blogspot.com/-i705daAePrk/UFmgGIvxZaI/AAAAAAAAEYE/DQb3DElqJO4/s1600/Leaf2.png";
+        image_urls['rain3'] = "http://2.bp.blogspot.com/-jrQRo6CcvEg/UFmgJOJAJ_I/AAAAAAAAEYk/efOE-PMw1Ls/s1600/Leaf6.png";
+        image_urls['rain4'] = "http://3.bp.blogspot.com/-Te-t2fE8zBY/UFmgIXY063I/AAAAAAAAEYc/P5OT_IQhqPQ/s1600/Leaf5.png";
+        $(document).ready(function () {
+            var c = $(window).width();
+            var d = $(window).height();
+            var e = function (a, b) {
+                return Math.round(a + (Math.random() * (b - a)))
+            };
+            var f = function (a) {
+                setTimeout(function () {
+                    a.css({
+                        left: e(0, c) + 'px',
+                        top: '-30px',
+                        display: 'block',
+                        opacity: '0.' + e(10, 100)
+                    }).animate({top: (d - 10) + 'px'}, e(7500, 8000), function () {
+                        $(this).fadeOut('slow', function () {
+                            f(a)
+                        })
+                    })
+                }, e(1, 8000))
+            };
+            $('<div></div>').attr('id', 'rainDiv')
+                .css({
+                    position: 'fixed',
+                    width: (c - 20) + 'px',
+                    height: '1px',
+                    left: '0px',
+                    top: '-5px',
+                    display: 'block'
+                }).appendTo('body');
+            for (var i = 1; i <= 20; i++) {
+                var g = $('<img/>').attr('src', image_urls['rain' + e(1, 4)])
+                    .css({
+                        position: 'absolute',
+                        left: e(0, c) + 'px',
+                        top: '-30px',
+                        display: 'block',
+                        opacity: '0.' + e(10, 100),
+                        'margin-left': 0
+                    }).addClass('rainDrop').appendTo('#rainDiv');
+                f(g);
+                g = null
+            }
+            ;var h = 0;
+            var j = 0;
+            $(window).resize(function () {
+                c = $(window).width();
+                d = $(window).height()
+            })
+        });</script>
+    <script>if (typeof jQuery == 'undefined') {
+            document.write('<' + 'script');
+            document.write(' language="javascript"');
+            document.write(' type="text/javascript"');
+            document.write(' src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">');
+            document.write('</' + 'script' + '>')
+        }</script>
+    <meta charset="utf-8">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 400px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Ẩn các slider */
+        .mySlides {
+            display: none;
+        }
+
+        /* Định dạng nội dung Caption */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* định dạng các chấm chuyển đổi các slide */
+        .dot {
+            cursor: pointer;
+            height: 13px;
+            width: 13px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        /* khi được hover, active đổi màu nền */
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Thêm hiệu ứng khi chuyển đổi các slide */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 3s;
+            animation-name: fade;
+            animation-duration: 3s;
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div style="text-align:center; margin-top: -100px">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+        <span class="dot" onclick="currentSlide(9)"></span>
+        <span class="dot" onclick="currentSlide(10)"></span>
+        <span class="dot" onclick="currentSlide(11)"></span>
+        <span class="dot" onclick="currentSlide(12)"></span>
+        <span class="dot" onclick="currentSlide(13)"></span>
+        <span class="dot" onclick="currentSlide(14)"></span>
+        <span class="dot" onclick="currentSlide(15)"></span>
+        <span class="dot" onclick="currentSlide(16)"></span>
+    </div>
+</div>
+<div class="slideshow-container" style="margin-top: 50px">
+    <div class="mySlides fade">
+        <img src="https://image.freepik.com/free-vector/poster-hello-honey_8382-1439.jpg" style="width:90%">
+        <div class="text" style="color: red"></div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/birthday.png"
+             style="width:100%">
+        <div class="text" style="color: red">Happy birthday my Love.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/vd1.JPG" style="width:100%">
+        <div class="text">Linh à! Linh có nhớ không ?</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="	https://nhom1mp3.000webhostapp.com/public/images/banner/2.JPG" style="width:100%">
+        <div class="text">Bình nhớ rõ ngày mà chúng mình thích nhau.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/vd5.JPG" style="width:100%">
+        <div class="text"><p>Linh biết không?</p>
+            <p>Hai đứa mình quen nhau bao lâu rồi không?</p></div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="	https://nhom1mp3.000webhostapp.com/public/images/banner/vd6.JPG" style="width:100%">
+        <div class="text">Cho đến bây giờ thời gian hai đúa không ngắn cũng không dài</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a1.JPG" style="width:100%">
+        <div class="text">Mình biết nhau - Quen nhau - Yêu nhau.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a2.JPG" style="width:100%">
+        <div class="text">Linh à ?</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a3.JPG" style="width:100%">
+        <div class="text">Linh là người đầu tiên Bình tỏ tình.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a4.JPG" style="width:100%">
+        <div class="text">
+            <p>Bình yêu Linh - Thương Linh -Thích Linh.</p>
+            <p>Và Bình thương Linh - Mến Linh - Muốn bên cạnh Linh.</p>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a5.JPG" style="width:100%">
+        <div class="text">Linh biết không Bình nhớ Linh nhiều.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a6.JPG" style="width:100%">
+        <div class="text">Bình muốn bên cạnh linh yêu thương chăm sóc Linh.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a7.JPG" style="width:100%">
+        <div class="text">Bình yêu Linh nhiều.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a8.JPG" style="width:100%">
+        <div class="text">Hai đứa cùng cố gắng nhé! Em Yêu.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a9.JPG" style="width:100%">
+        <div class="text">Linh Sinh Nhật Vui Vẻ.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="	https://nhom1mp3.000webhostapp.com/public/images/banner/a10.JPG" style="width:100%">
+        <div class="text">NGười yêu xinh gái rễ thương của anh.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://nhom1mp3.000webhostapp.com/public/images/banner/a11.JPG" style="width:100%">
+        <div class="text">I LOVE YOU</div>
+    </div>
+
+</div>
+</body>
+<script>
+    //khai báo biến slideIndex đại diện cho slide hiện tại
+    var slideIndex;
+
+    // KHai bào hàm hiển thị slide
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex].style.display = "block";
+        dots[slideIndex].className += " active";
+        //chuyển đến slide tiếp theo
+        slideIndex++;
+        //nếu đang ở slide cuối cùng thì chuyển về slide đầu
+        if (slideIndex > slides.length - 1) {
+            slideIndex = 0
+        }
+        //tự động chuyển đổi slide sau 5s
+        setTimeout(showSlides, 5000);
+    }
+
+    //mặc định hiển thị slide đầu tiên
+    showSlides(slideIndex = 0);
+
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+</script>
 </html>
